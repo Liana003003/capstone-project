@@ -3,7 +3,7 @@ function Footer() {
     <footer>
       <section className="footer-top">
         <div className="footer-logo">
-          <img src="/logo192.png" alt="Little Lemon Footer Logo" />
+          <img src="/footer-logo.png" alt="Little Lemon Footer Logo" />
         </div>
         <div className="footer-nav-links">
           <h3>Little Lemon</h3>
@@ -18,9 +18,10 @@ function Footer() {
         </div>
         <div className="contact-info">
           <h3>Contact Us</h3>
-          <p>123 Main Street, Anytown, CHICAGO</p>
-          <p>Phone: (123) 456-7890</p>
-          <p>Email: littlelemon@yahoo.com</p>
+          <p>123 Main Street, Anytown,</p>
+          <p>Chicago</p>
+          <p><strong>Phone:</strong> (123) 456-7890</p>
+          <p><strong>Email:</strong> littlelemon@yahoo.com</p>
         </div>
         <div className="social-media">
           <h3>Follow Us</h3>

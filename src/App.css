@@ -1,38 +1,121 @@
-.App {
+body {
+  display: grid;
+}
+header, footer {
+  background-color: #f8f8f8;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 2rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+nav ul li {
+  font-family: Markazi text;
+  font-size: 1.8rem;
+  font-weight: regular;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  color: #f4ce14;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10rem;
+  padding: 3rem 0;
+}
+
+header img {
+  width: 18%;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 3rem;
+  gap: 2rem;
+  text-align: left;
+  font-size: 1.5rem;
+  font-family: Markazi text;
+}
+
+.footer-top h3 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #495E57;
+}
+
+.footer-top a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.footer-top a:hover {
+  color: #f4ce14;
+}
+
+.footer-top > div {
+  flex: 1;
+}
+
+.footer-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4.5rem;
+  margin-right: 2.5rem;
+}
+
+.footer-logo img {
+  width: 30%;
+}
+
+.footer-nav-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-nav-links li {
+  margin-bottom: 1rem;
+}
+
+.footer-nav-links a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.social-media {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.social-media a {
+  text-decoration: none;
+  color: inherit;
+  margin-bottom: 1rem;
+  gap: 1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  padding: 3rem 0;
+  margin: 0 3rem;
 }
