@@ -18,7 +18,7 @@ function Main() {
       </section>
       <section id="highlights-section">
         <div className="highlights-top">
-          <h2>This Week's Specials!</h2>
+          <h1>This Week's Specials!</h1>
           <button>Online Menu</button>
         </div>
         <div className="highlights-card-container">
@@ -31,10 +31,11 @@ function Main() {
             <p className="highlights-card-price">$12.99</p>
             </div>
             <div className="highlights-card-content">
-            <p className="highlights-content">The famous Greek salad of crispy lettuce, peppers, olives and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons.</p>
+            <p className="highlights-content">The famous Greek salad of crispy lettuce, peppers, olives and feta cheese, garnished with crunchy garlic and rosemary croutons.</p>
             </div>
             <div className="highlights-card-footer">
             <p className="tagline">Order a delivery</p>
+            <img src="Dish icon.svg" alt="Delivery Icon" />
             </div>
           </div>
           <div className="highlights-card">
@@ -50,6 +51,7 @@ function Main() {
             </div>
             <div className="highlights-card-footer">
             <p className="tagline">Order a delivery</p>
+            <img src="Dish icon.svg" alt="Delivery Icon" />
             </div>
           </div>
           <div className="highlights-card">
@@ -65,6 +67,7 @@ function Main() {
             </div>
             <div className="highlights-card-footer">
             <p className="tagline">Order a delivery</p>
+            <img src="Dish icon.svg" alt="Delivery Icon" />
             </div>
           </div>
         </div>
@@ -79,11 +82,13 @@ function Main() {
               <div className="testimonials-card-rating">
                 <span>⭐⭐⭐⭐⭐</span>
               </div>
+              <div className="testimonials-card-profile">
               <div className="testimonials-card-image">
               <img src="customer1.jpg" alt="Customer 1" />
               </div>
               <div className="testimonials-card-name">
                 <h3>Saya D.</h3>
+              </div>
               </div>
               <div className="testimonials-card-content">
                 <p>"I love going to Little Lemon! Best Bruschetta I've ever had!"</p>
@@ -93,25 +98,29 @@ function Main() {
               <div className="testimonials-card-rating">
                 <span>⭐⭐⭐⭐⭐</span>
               </div>
+              <div className="testimonials-card-profile">
               <div className="testimonials-card-image">
               <img src="customer2.jpg" alt="Customer 2" />
               </div>
               <div className="testimonials-card-name">
                 <h3>Jake B.</h3>
               </div>
+              </div>
               <div className="testimonials-card-content">
-                <p>"Highly reccommend. We celebrate all our big events there, the food and atmosphere never dissapoint"</p>
+                <p>"We do all our big events there, the food and atmosphere never dissapoint"</p>
                 </div>
             </div>
             <div className="testimonials-card">
               <div className="testimonials-card-rating">
                 <span>⭐⭐⭐⭐⭐</span>
               </div>
+              <div className="testimonials-card-profile">
               <div className="testimonials-card-image">
               <img src="customer3.jpg" alt="Customer 3" />
               </div>
               <div className="testimonials-card-name">
                 <h3>Vera S.</h3>
+              </div>
               </div>
               <div className="testimonials-card-content">
                 <p>"Our go-to restaurant with my family and friends. The food is amazing!"</p>
@@ -121,31 +130,18 @@ function Main() {
               <div className="testimonials-card-rating">
                 <span>⭐⭐⭐⭐⭐</span>
               </div>
+              <div className="testimonials-card-profile">
               <div className="testimonials-card-image">
               <img src="customer4.jpg" alt="Customer 4" />
               </div>
               <div className="testimonials-card-name">
                 <h3>Jordan T.</h3>
               </div>
+              </div>
               <div className="testimonials-card-content">
                 <p>"The food was fantastic and the service excellent. I will be back again!"</p>
                 </div>
             </div>
-          </div>
-        </div>
-      </section>
-      <section id="about-section">
-        <div className="about-container">
-          <div className="about-content">
-            <h1>Little Lemon</h1>
-            <h3>Chicago</h3>
-            <p>
-              At Little Lemon, we believe in creating memorable dining experiences that celebrate the rich flavors of Mediterranean cuisine. Our chefs use the freshest ingredients to craft dishes that are both traditional and innovative. Whether you're joining us for a casual meal or a special occasion, we strive to provide exceptional service in a warm and inviting atmosphere.
-            </p>
-          </div>
-          <div className="about-images">
-            <img src="Mario and Adrian A.jpg" alt="Mario and Adrian" />
-            <img src="restaurant chef B.jpg" alt="Adrian" />
           </div>
         </div>
       </section>
