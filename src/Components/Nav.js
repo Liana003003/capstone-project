@@ -10,22 +10,20 @@ function Nav() {
         <li>
           <ScrollLink
             to="about-section"
-            smooth={true}
-            duration={500}
-            spy={true}
-            offset={-70}
+            smooth={"easeInOutQuad"}
+            duration={1000}
           >
             About
           </ScrollLink>
         </li>
         <li>
-          <ScrollLink to="highlights-section" smooth={true} duration={500}>
+          <ScrollLink to="highlights-section" smooth={true} duration={500} offset={100}>
             Menu
           </ScrollLink>
         </li>
         <li><Link to="/reservations">Reservations</Link></li>
         <li>
-          <ScrollLink to="highlights-section" smooth={true} duration={500}>
+          <ScrollLink to="highlights-section" smooth={true} duration={500} offset={100}>
             Order Online
           </ScrollLink>
         </li>

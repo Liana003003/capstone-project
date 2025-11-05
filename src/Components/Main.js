@@ -1,4 +1,13 @@
+import { useNavigate } from "react-router-dom";
+
 function Main() {
+   const navigate = useNavigate();
+
+  const handleClick = () => {
+    // (Optional) your form submission logic here
+    navigate("/reservations1");
+  };
+
   return (
     <main>
       <section className="hero-section">
@@ -9,10 +18,10 @@ function Main() {
         <p>
           We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.
         </p>
-        <button>Reserve a Table</button>
+        <button onClick={handleClick}>Reserve a Table</button>
         </div>
         <div className="hero-right">
-        <img src="restauranfood.jpg" alt="Chef holding a dish" />
+        <img src="/restauranfood.jpg" alt="Chef holding a dish" />
         </div>
         </div>
       </section>

@@ -2,9 +2,8 @@ import { useNavigate } from "react-router-dom";
 
 function TableReserved() {
     const navigate = useNavigate();
- 
+
    const handleConfirm = () => {
-     // (Optional) your form submission logic here
      navigate("/");
    };
    return (

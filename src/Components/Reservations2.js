@@ -1,12 +1,31 @@
 import { useNavigate } from "react-router-dom";
+import { useContext, useState } from "react";
+import { ReservationContext } from "../context/ReservationContext";
 
 function Reservations2() {
   const navigate = useNavigate();
- 
-   const handleConfirm = () => {
-     // (Optional) your form submission logic here
-     navigate("/reservation-details");
-   };
+    const { reservation, updateReservation } = useContext(ReservationContext);
+    const [formData, setFormData] = useState({
+      resguests: reservation.resguests || "",
+      resdate: reservation.resdate || "",
+      restime: reservation.restime || "",
+      respreferences: reservation.respreferences || "",
+    });
+
+    const isFormValid = formData.resguests.trim() !== "" && formData.resdate.trim() !== "" && formData.restime.trim() !== "";
+
+     const handleChange = (e) => {
+  const newData = { ...formData, [e.target.name]: e.target.value };
+  setFormData(newData);
+  updateReservation(newData);
+};
+
+    const handleConfirm = (e) => {
+      e.preventDefault();
+      updateReservation(formData);
+      navigate("/reservation-details");
+    };
+
   return (
     <>
     <section id="green-header-container">
@@ -18,11 +37,11 @@ function Reservations2() {
       <div className="reservation-form-box">
         <form className="reservation-form">
           <label htmlFor="res-guests">Number of Guests *</label>
-          <input type="number" id="res-guests" name="res-guests" min="1" max="12" required />
+          <input type="number" id="res-guests" name="resguests" min="1" max="12" required onChange={handleChange} value={formData.resguests}/>
           <label htmlFor="res-date">Date *</label>
-          <input type="date" id="res-date" name="res-date" required />
+          <input type="date" id="res-date" name="resdate" required onChange={handleChange} value={formData.resdate}/>
           <label htmlFor="res-time">Time *</label>
-          <input type="text" id="res-time" name="res-time" list="different-times" required />
+          <input type="text" id="res-time" name="restime" list="different-times" required onChange={handleChange} value={formData.restime}/>
           <datalist id="different-times">
             <option value="10:00" />
             <option value="10:30" />
@@ -42,11 +61,11 @@ function Reservations2() {
             <option value="21:00" />
           </datalist>
           <label htmlFor="res-preferences">Additional Preferences:</label>
-          <input type="text" id="res-preferences" name="res-preferences" />
+          <input type="text" id="res-preferences" name="respreferences" onChange={handleChange}/>
           </form>
       </div>
       <div className="button-form-container">
-      <button type="submit" className="reservation-submit-button" onClick={handleConfirm}>Confirm</button>
+      <button type="submit" className="reservation-submit-button" maxlength="140" onClick={handleConfirm} disabled={!isFormValid}>Confirm</button>
       </div>
     </section>
       </>

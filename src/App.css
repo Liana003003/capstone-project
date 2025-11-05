@@ -5,6 +5,7 @@ body {
   grid-template-rows: auto 1fr auto;
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
 }
 
 header, footer, #testimonials-section {
@@ -25,9 +26,17 @@ button {
   box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
 }
 
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
 button:hover {
   background-color: #676039;
   color: #ffffff;
+}
+
+button:hover:not(:disabled) {
   animation: wiggle 2s linear infinite;
 }
 
@@ -516,6 +525,10 @@ header img {
 /* Reservation Pages */
 /* Reservation1 */
 
+input:invalid {
+  border: 2px dashed red;
+}
+
 #green-header-container {
   background-color: #495E57;
   margin: 0;
@@ -544,6 +557,18 @@ header img {
   grid-template-rows: auto;
   justify-items: center;
   padding: 5rem 0;
+  z-index: 1;
+  position: relative;
+  border: 0.5rem outset #fddec1;
+}
+
+#reservation-form-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/public/restaurant.jpg") center/cover no-repeat;
+  opacity: 0.3;
+  z-index: -1;
 }
 
 .reservation-form-box {
@@ -602,13 +627,40 @@ justify-items: start;
 
 /* Reservation Details */
 
+.reservation-form3 {
+  line-height: 0;
+}
 .details-name {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  line-height: 0rem;
 }
 
-.details-name-container1, .details-name-container2 {
-  padding: 0;
+.details-name-container1 {
+  padding-bottom: 2rem;
+}
+
+.details-name-container2 {
+  padding-top: 2rem;
+}
+
+hr {
+  border: 0;
+  height: 0.1rem;
+  background: #333;
+  background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+
+.part1 {
+  font-size: 2rem;
+  color: #495E57;
+  font-weight: bold;
+}
+
+.part2 {
+  font-size: 1.8rem;
+  font-weight: normal;
 }
 
 #details-correct-container {

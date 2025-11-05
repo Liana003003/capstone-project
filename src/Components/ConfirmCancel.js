@@ -1,15 +1,17 @@
+import { useContext } from "react";
+import { ReservationContext } from "../context/ReservationContext";
 import { useNavigate } from "react-router-dom";
- 
+
  function ConfirmCancel() {
+  const { reservation } = useContext(ReservationContext);
+    console.log("Final reservation data:", reservation);
   const navigate = useNavigate();
- 
+
    const handleYesCancel = () => {
-     // (Optional) your form submission logic here
      navigate("/tablecancelled");
    };
 
    const handleNoCancel = () => {
-     // (Optional) your form submission logic here
      navigate("/reservation-details");
    };
 
@@ -22,33 +24,30 @@ import { useNavigate } from "react-router-dom";
       </section>
     <section id="reservation-form-container">
       <div className="reservation-form-box">
-        <div className="reservation-form">
+        <div className="reservation-form3">
             <div className="details-name-container1">
             <div className="details-name">
                 <div className="part1">
                     <p>Full Name</p>
                 </div>
                 <div className="part2">
-                    <p>To be filled</p>
+                    <p>{reservation.resname}</p>
                 </div>
             </div>
-            </div>
-            <div className="details-name-container2">
             <div className="details-name">
                 <div className="part1">
                     <p>Email</p>
                 </div>
                 <div className="part2">
-                    <p>To be filled</p>
+                    <p>{reservation.resemail}</p>
                 </div>
-            </div>
             </div>
             <div className="details-name">
                 <div className="part1">
                     <p>Phone Number</p>
                 </div>
                 <div className="part2">
-                    <p>To be filled</p>
+                    <p>{reservation.resphone}</p>
                 </div>
             </div>
             <div className="details-name">
@@ -56,15 +55,18 @@ import { useNavigate } from "react-router-dom";
                     <p>Occasion</p>
                 </div>
                 <div className="part2">
-                    <p>To be filled</p>
+                    <p>{reservation.resoccasion}</p>
                 </div>
             </div>
+            </div>
+            <hr></hr>
+            <div className="details-name-container2">
             <div className="details-name">
                 <div className="part1">
                     <p>Number of Guests</p>
                 </div>
                 <div className="part2">
-                    <p>To be filled</p>
+                    <p>{reservation.resguests}</p>
                 </div>
             </div>
             <div className="details-name">
@@ -72,7 +74,7 @@ import { useNavigate } from "react-router-dom";
                     <p>Date</p>
                 </div>
                 <div className="part2">
-                    <p>To be filled</p>
+                    <p>{reservation.resdate}</p>
                 </div>
             </div>
             <div className="details-name">
@@ -80,19 +82,20 @@ import { useNavigate } from "react-router-dom";
                     <p>Time</p>
                 </div>
                 <div className="part2">
-                    <p>To be filled</p>
+                    <p>{reservation.restime}</p>
                 </div>
             </div>
             <div className="details-name">
                 <div className="part1">
-                    <p>Additional Preferences:</p>
+                    <p>Additional Preferences</p>
                 </div>
                 <div className="part2">
-                    <p>To be filled</p>
+                    <p>{reservation.respreferences}</p>
+                </div>
                 </div>
             </div>
         </div>
-      </div>
+        </div>
       </section>
       <section id="details-correct-container">
        <div className="details-correct">
