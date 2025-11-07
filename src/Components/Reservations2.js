@@ -12,16 +12,35 @@ function Reservations2() {
       respreferences: reservation.respreferences || "",
     });
 
+    const [error, setError] = useState("");
+
     const isFormValid = formData.resguests.trim() !== "" && formData.resdate.trim() !== "" && formData.restime.trim() !== "";
 
      const handleChange = (e) => {
   const newData = { ...formData, [e.target.name]: e.target.value };
   setFormData(newData);
   updateReservation(newData);
+  setError("");
 };
 
     const handleConfirm = (e) => {
       e.preventDefault();
+
+      if (!formData.resguests.trim() || formData.resguests.trim() < 0 || formData.resguests.trim() > 12) {
+      setError("Please enter between 1 and 12 guests");
+      return;
+    }
+
+    if (!formData.resdate.trim()) {
+      setError("Please enter a date");
+      return;
+    }
+
+    if (!formData.restime.trim()) {
+      setError("Please a time");
+      return;
+    }
+
       updateReservation(formData);
       navigate("/reservation-details");
     };
@@ -63,9 +82,10 @@ function Reservations2() {
           <label htmlFor="res-preferences">Additional Preferences:</label>
           <input type="text" id="res-preferences" name="respreferences" onChange={handleChange}/>
           </form>
+          {error && <div className="error-message">{error}</div>}
       </div>
       <div className="button-form-container">
-      <button type="submit" className="reservation-submit-button" maxlength="140" onClick={handleConfirm} disabled={!isFormValid}>Confirm</button>
+      <button type="submit" className="reservation-submit-button" maxLength="140" onClick={handleConfirm} disabled={!isFormValid}>Confirm</button>
       </div>
     </section>
       </>

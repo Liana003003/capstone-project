@@ -1,11 +1,17 @@
 import { Link } from "react-router-dom";
 import React from "react";
 import { Link as ScrollLink } from "react-scroll";
+import { useState } from 'react';
 
 function Nav() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => setMenuOpen(!menuOpen);
+
   return (
-    <nav>
-      <ul>
+    <>
+    <nav className="navbar">
+      <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
         <li><Link to="/">Home</Link></li>
         <li>
           <ScrollLink
@@ -29,7 +35,13 @@ function Nav() {
         </li>
         <li><Link to="/login">Login</Link></li>
       </ul>
+      <div className="hamburger" onClick={toggleMenu}>
+        <span className="bar"></span>
+        <span className="bar"></span>
+        <span className="bar"></span>
+      </div>
     </nav>
+      </>
   );
 }
 
