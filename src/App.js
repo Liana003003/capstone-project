@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
+import { AvailableTimesContext } from './context/AvailableTimesContext';
 
 import Header from './Components/Header';
 import Main from './Components/Main';
@@ -15,8 +16,22 @@ import Login from './Components/Login';
 import Modal from './Modal';
 import About from './Components/About';
 
+export function initializeTimes() {
+  return window.fetchAPI(new Date());
+}
+
+export function updateTimes(state, action) {
+  switch (action.type) {
+    case "update-times":
+      return window.fetchAPI(new Date(action.payload));
+    default:
+      return state;
+  }
+}
+
 function App() {
   const [showModal, setShowModal] = useState(false);
+  const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes());
 
   useEffect(() => {
     const hasSeenModal = localStorage.getItem('hasSeenModal');
@@ -34,6 +49,7 @@ function App() {
     <>
       <Modal show={showModal} onClose={handleClose} />
       <Header />
+      <AvailableTimesContext.Provider value={{ availableTimes, dispatch }}>
       <Routes>
         <Route path="/" element={
           <>
@@ -50,6 +66,7 @@ function App() {
         <Route path="/tablecancelled" element={<TableCancelled />} />
         <Route path="/login" element={<Login />} />
       </Routes>
+      </AvailableTimesContext.Provider>
       <Footer />
     </>
   );

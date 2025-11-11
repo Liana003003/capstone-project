@@ -1,10 +1,9 @@
 import { useNavigate } from "react-router-dom";
 
 function Main() {
-   const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleClick = () => {
-    // (Optional) your form submission logic here
     navigate("/reservations1");
   };
 
@@ -157,5 +156,6 @@ function Main() {
     </main>
   );
 }
+
 
 export default Main;

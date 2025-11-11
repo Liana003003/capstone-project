@@ -2,9 +2,8 @@ import { useNavigate } from "react-router-dom";
 
 function TableCancelled() {
     const navigate = useNavigate();
- 
+
    const handleConfirm = () => {
-     // (Optional) your form submission logic here
      navigate("/");
    };
    return (
