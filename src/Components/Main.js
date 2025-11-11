@@ -1,3 +1,9 @@
+/* The logic for useReducer has been lifted up all the way to App.js as it was working better with my design */
+
+/* Main contains the Hero section (Restaurant's name, some text and a picture), the Highlights section
+(three dishes on special along with a order online button) and the Testimonials section (includes
+4 testimonials with rating, pictures and names) */
+
 import { useNavigate } from "react-router-dom";
 
 function Main() {

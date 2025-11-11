@@ -1,3 +1,7 @@
+/* I've written my css following the order of webpages and the position of each component. The code starts from
+Home page followed by the reservation pages. It takes each section in order and each section is followed by its
+respective responsive css adjusted for tablets and mobiles */
+
 /* Home Page */
 
 html, body {
@@ -74,6 +78,7 @@ nav ul {
   margin: 0;
   display: flex;
   gap: 2rem;
+  z-index: 1000;
 }
 
 nav ul li {
@@ -141,17 +146,16 @@ header img {
     top: 70px;
     right: 0;
     background-color:#dbddd7;
-    width: 220px;
+    width: 215px;
     height: 0;
     overflow: hidden;
-    border-radius: 0 0 0 12px;
+    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    transition: height 0.3s ease;
   }
 
   nav ul li a {
     font-size: 1.4rem;
-    color: white;
+    color: #495E57;
   }
 
   .hamburger {
@@ -159,7 +163,7 @@ header img {
   }
 
   .nav-links.open {
-    height: 260px;
+    height: 290px;
     padding: 1rem 1.5rem;
   }
 }
@@ -189,7 +193,7 @@ header img {
   }
 
   .nav-links.open {
-    height: 240px;
+    height: 230px;
     padding: 0.8rem 1rem;
     line-height: 0.3;
   }
@@ -1063,9 +1067,8 @@ header img {
 
 .error-message {
   color: #ff4d4d;
-  font-size: 2rem;
-  margin-top: 3rem;
-  text-align: center;
+  font-size: 1.5rem;
+  text-align:start;
   transform: translateY(-5px);
   animation: fadeInError 0.3s ease forwards;
 }
@@ -1100,7 +1103,7 @@ input:invalid {
 .green-header h1 {
   font-size: 6.8rem;
   font-weight: medium;
-  text-shadow: 1px 1px 2px black;
+  text-shadow: 3px 3px 4px black;
   color: #f4ce14;
 }
 
@@ -1168,6 +1171,15 @@ input:invalid {
 
 .button-form-container {
   padding: 4rem;
+  position: relative;
+  display: inline-block;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: transparent;
 }
 
 .reservation-submit-button {
@@ -1319,6 +1331,10 @@ hr {
 }
 
 @media (min-width: 601px) and (max-width: 1024px) {
+  .error-message {
+    font-size: 1.2rem;
+  }
+
   #green-header-container {
     height: 12rem;
   }
@@ -1336,6 +1352,7 @@ hr {
   }
 
   .reservation-form {
+    width: 100%;
     gap: 1.5rem;
   }
 
@@ -1357,6 +1374,14 @@ hr {
   .details-correct {
     width: 60%;
     padding: 2rem 3rem;
+  }
+
+  .details-name .part1 {
+    font-size: 1.5rem;
+  }
+
+  .details-name .part2 {
+    font-size: 1.2rem;
   }
 
   .correct-details p {
@@ -1393,6 +1418,10 @@ hr {
 }
 
 @media (max-width: 600px) {
+
+  .error-message {
+    font-size: 1rem;
+  }
 
   #green-header-container {
     height: 8rem;
@@ -1491,3 +1520,4 @@ hr {
     width: 10rem;
   }
 }
+

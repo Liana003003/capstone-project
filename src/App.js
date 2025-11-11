@@ -1,4 +1,10 @@
-import React, { useState, useEffect, useReducer } from 'react';
+/* App.js contains the useReducer logic meant for the reservation pages. We were meant to
+lift this logic up from Reservation to Main. Unfortunately that didn't quite work with my design
+so I lifted it up all the way to App */
+
+/*App also includes a modal that is meant to warn users that the website is fictional */
+
+import React, { /* useState, useEffect,*/ useReducer } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import { AvailableTimesContext } from './context/AvailableTimesContext';
@@ -13,7 +19,7 @@ import ConfirmCancel from './Components/ConfirmCancel';
 import TableReserved from './Components/TableReserved';
 import TableCancelled from './Components/TableCancelled';
 import Login from './Components/Login';
-import Modal from './Modal';
+/* import Modal from './Modal'; */
 import About from './Components/About';
 
 export function initializeTimes() {
@@ -30,10 +36,13 @@ export function updateTimes(state, action) {
 }
 
 function App() {
-  const [showModal, setShowModal] = useState(false);
+  /* Modal appears on top of page instead of in a window. I'm disabling the related code until
+     I figure out how to fix it */
+
+ /* const [showModal, setShowModal] = useState(false); */
   const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes());
 
-  useEffect(() => {
+ /*  useEffect(() => {
     const hasSeenModal = localStorage.getItem('hasSeenModal');
     if (!hasSeenModal) {
       setShowModal(true);
@@ -43,11 +52,11 @@ function App() {
   const handleClose = () => {
     setShowModal(false);
     localStorage.setItem('hasSeenModal', 'true');
-  };
+  }; */
 
   return (
     <>
-      <Modal show={showModal} onClose={handleClose} />
+     {/* <Modal show={showModal} onClose={handleClose} /> */}
       <Header />
       <AvailableTimesContext.Provider value={{ availableTimes, dispatch }}>
       <Routes>

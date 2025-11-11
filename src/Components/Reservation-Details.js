@@ -1,3 +1,7 @@
+/* This component is presenting the full details the user previously entered by using the imported
+ReservationContext (this particular context is wrapped around App in Index.js). This page allows the user to edit,
+cancel or finish the reservation */
+
 import { useContext } from "react";
 import { ReservationContext } from "../context/ReservationContext";
 import { useNavigate } from "react-router-dom";
@@ -9,14 +13,17 @@ import { useNavigate } from "react-router-dom";
 
    const handleConfirm = () => {
     resetReservation();
+    window.scrollTo({ top: 180, behavior: "instant" });
      navigate("/tablereserved");
    };
 
    const handleEdit = () => {
+    window.scrollTo({ top: 180, behavior: "instant" });
      navigate("/reservations1");
    }
 
    const handleCancel = () => {
+    window.scrollTo({ top: 1020, behavior: "instant" });
      navigate("/confirmcancel");
    }
 

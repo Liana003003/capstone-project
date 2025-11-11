@@ -115,3 +115,86 @@ test("Check that the form can be submitted by the user", () => {
         respreferences: "",
     })
 ;})
+
+test('Check whether each input in Reservation1 has the correct type for client-side validation', () => {
+    const mockContextValue = {
+    reservation: {resname: "",
+        resemail: "",
+        resphone: "",
+        resoccasion: "",
+        resguests: "",
+        resdate: "",
+        restime: "",
+        respreferences: ""},
+
+    updateReservation: jest.fn(),
+    };
+
+    render(
+    <MemoryRouter>
+        <ReservationContext.Provider value={mockContextValue}>
+        <Reservations1 />
+        </ReservationContext.Provider>
+    </MemoryRouter>
+        );
+
+  const nameInput = screen.getByLabelText(/full name/i);
+  expect(nameInput).toHaveAttribute("type", "text");
+  expect(nameInput).toBeRequired();
+
+  const emailInput = screen.getByLabelText(/email/i);
+  expect(emailInput).toHaveAttribute("type", "email");
+  expect(emailInput).toBeRequired();
+
+  const phoneInput = screen.getByLabelText(/phone/i);
+  expect(phoneInput).toHaveAttribute("type", "tel");
+  expect(phoneInput).toBeRequired();
+});
+
+
+test('Check whether each input in Reservation2 has the correct type for client-side validation', () => {
+    const mockContextValue = {
+    reservation: {resname: "",
+        resemail: "",
+        resphone: "",
+        resoccasion: "",
+        resguests: "",
+        resdate: "",
+        restime: "",
+        respreferences: ""},
+
+    updateReservation: jest.fn(),
+    };
+
+    const mockContextValue2 = {
+        availableTimes: [
+    "10:00", "10:30", "11:00", "11:30",
+    "12:00", "12:30", "13:00", "13:30",
+    "14:00", "18:00", "18:30", "19:00",
+    "19:30", "20:00", "20:30", "21:00"
+    ],
+    dispatch: jest.fn(),
+    };
+
+    render(
+    <MemoryRouter>
+        <ReservationContext.Provider value={mockContextValue}>
+          <AvailableTimesContext.Provider value={mockContextValue2}>
+             <Reservations2/>
+           </AvailableTimesContext.Provider>
+        </ReservationContext.Provider>
+    </MemoryRouter>
+        );
+
+  const guestsInput = screen.getByLabelText(/number of guests/i);
+  expect(guestsInput).toHaveAttribute("type", "number");
+  expect(guestsInput).toBeRequired();
+
+  const dateInput = screen.getByLabelText(/date/i);
+  expect(dateInput).toHaveAttribute("type", "date");
+  expect(dateInput).toBeRequired();
+
+  const timeInput = screen.getByLabelText(/time/i);
+  expect(timeInput).toHaveAttribute("type", "text");
+  expect(timeInput).toBeRequired();
+});
